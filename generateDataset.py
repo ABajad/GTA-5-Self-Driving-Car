@@ -7,7 +7,7 @@ import win32gui
 from pynput import keyboard
 import os
 
-windows_list = []
+process_list = []
 toplist = []
 
 # Game Process Name
@@ -33,12 +33,12 @@ for key in keys:
 
 def enum_win(hwnd, result):  # All Process
     win_text = win32gui.GetWindowText(hwnd)
-    windows_list.append((hwnd, win_text))
+    process_list.append((hwnd, win_text))
 
 
 win32gui.EnumWindows(enum_win, toplist)  # Find Game Process From All Process
 game_hwnd = 0
-for (hwnd, win_text) in windows_list:
+for (hwnd, win_text) in process_list:
     if process_name in win_text:
         game_hwnd = hwnd
 
