@@ -14,15 +14,15 @@ toplist = []
 process_name = 'Studio Code'
 
 
-# Keys used in game
-keys = {
-    'w': 0,
-    'a': 0,
-    's': 0,
-    'd': 0
-}
+# Name of images based on numbers
+w_num = 0
+a_num = 0
+s_num = 0
+d_num = 0
+
 
 # Make Dirs
+keys = ['w', 'a', 's', 'd']
 for key in keys:
     try:
         data_path = 'data/' + key
@@ -58,28 +58,25 @@ def save_screen(key, num):  # Take And Save ScreenShot
 
 def on_press(key):  # Save One Key Press
     try:
-        global keys
-        keys[key.char] += 1
-        save_screen(key.char, keys[key.char])
-        # if (key.char == 'w'):
-        #     global num
-        #     keys[key.char] += 1
-        #     save_screen('w', keys[key.char])
+        if (key.char == 'w'):
+            global w_num
+            w_num += 1
+            save_screen('w', w_num)
 
-        # if (key.char == 'a'):
-        #     global a_num
-        #     a_num += 1
-        #     save_screen('a', w_num)
+        if (key.char == 'a'):
+            global a_num
+            a_num += 1
+            save_screen('a', w_num)
 
-        # if (key.char == 's'):
-        #     global s_num
-        #     s_num += 1
-        #     save_screen('s', w_num)
+        if (key.char == 's'):
+            global s_num
+            s_num += 1
+            save_screen('s', w_num)
 
-        # if (key.char == 'd'):
-        #     global d_num
-        #     d_num += 1
-        #     save_screen('d', w_num)
+        if (key.char == 'd'):
+            global d_num
+            d_num += 1
+            save_screen('d', w_num)
 
     except AttributeError:
         if (key == keyboard.Key.esc):
